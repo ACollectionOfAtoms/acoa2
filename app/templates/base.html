@@ -33,19 +33,18 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">Projects</a></li>
-            <li role="presentation"><a href="#">About</a></li>
+            <li {% if request.endpoint == 'home' %} class="active" {% endif %} role="presentation">
+              <a href="/">Home</a></li>
+            <li {% if request.endpoint == 'projects' %} class="active" {% endif %} role="presentation">
+              <a href="/projects">Projects</a></li>
+            <li {% if request.endpoint == 'about' %} class="active" {% endif %} role="presentation">
+              <a href="/about">About</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">A Collection Of Atoms</h3>
       </div>
 
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h3>Fake Post</h3>
-          <p>This is a fake post</p>
-      </div>
+      {% block content %}{% endblock %}
 
       <footer class="footer">
         <p>&copy; David Adam Hernandez 2016</p>
